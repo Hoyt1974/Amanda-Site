@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amanda — Where Shadows Become Story</title>
+    <meta
+      name="description"
+      content="Dark romance, supernatural mystery, and poetic transformation."
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <h1>Where Shadows Become Story</h1>
+        <p>
+          Enter the worlds of dark romance, supernatural mystery, and poetic
+          transformation.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#books">Explore My Books</a>
+          <a class="btn ghost" href="#about">About the Author</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Featured Books -->
+      <section id="books" class="books container">
+        <h2 class="section-title">Featured Books</h2>
+        <div class="grid">
+          <!-- Midnight Veil -->
+          <article class="card">
+            <div class="card__media">
+              <img
+                src="./assets/img/midnight-veil.jpg"
+                alt="Midnight Veil cover artwork"
+              />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Midnight Veil</h3>
+              <p class="card__blurb">
+                A vampire and werewolf romance born in the cartographer’s
+                moonlit maproom.
+              </p>
+              <div class="card__actions">
+                <a class="btn primary" href="#">Buy Now</a>
+                <a
+                  class="btn read-more"
+                  href="#"
+                  data-title="Midnight Veil"
+                  data-text="In the cartographer’s moonlit maproom, a vampire marked by ancient debts and a werewolf bound by bloodmaps dare a romance that redraws the borders of night."
+                  data-buy="#"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Obedience Mirror -->
+          <article class="card">
+            <div class="card__media">
+              <img
+                src="./assets/img/obedience-mirror.jpg"
+                alt="Obedience Mirror cover artwork"
+              />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Obedience Mirror</h3>
+              <p class="card__blurb">
+                When obedience becomes ritual, silence is the price and hearts
+                turn to iron.
+              </p>
+              <div class="card__actions">
+                <a class="btn primary" href="#">Buy Now</a>
+                <a
+                  class="btn read-more"
+                  href="#"
+                  data-title="Obedience Mirror"
+                  data-text="A cracked mirror whispers vows of power. When obedience becomes a ritual, the price of silence might be a heart turned to iron."
+                  data-buy="#"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Celestial Bones -->
+          <article class="card">
+            <div class="card__media">
+              <img
+                src="./assets/img/celestial-bones.jpg"
+                alt="Celestial Bones cover artwork"
+              />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Celestial Bones</h3>
+              <p class="card__blurb">
+                Poetry for those who carry grave-light like a blade.
+              </p>
+              <div class="card__actions">
+                <a class="btn primary" href="#">Buy Now</a>
+                <a
+                  class="btn read-more"
+                  href="#"
+                  data-title="Celestial Bones"
+                  data-text="Poems like constellations stitched with ash. For those who carry grave-light like a blade through the velvet dark."
+                  data-buy="#"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About the Author -->
+      <section id="about" class="about container">
+        <h2 class="section-title">About the Author</h2>
+        <p>
+          Amanda writes for the haunted, the seekers, the ones who dance between
+          light and shadow. Her words are veils—lifting, burning, transforming.
+        </p>
+        <p>When night falls, the stories wake.</p>
+        <a class="btn ghost" href="#">Learn More</a>
+      </section>
+
+      <!-- Enter the Veil (email signup placeholder) -->
+      <section id="newsletter" class="veil container">
+        <h2 class="section-title">Enter the Veil</h2>
+        <p>
+          Join my circle to receive secret poems, early chapters, and exclusive
+          book updates.
+        </p>
+        <form
+          class="veil__form"
+          action="#"
+          method="get"
+          onsubmit="return false"
+        >
+          <label class="sr-only" for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+          />
+          <div class="veil__actions">
+            <a class="btn primary" href="#">Join the Circle</a>
+            <a class="btn ghost" href="#">Follow</a>
+          </div>
+        </form>
+        <p class="hint">
+          (Later we’ll wire this to Mailchimp/ConvertKit or a simple Google
+          Form.)
+        </p>
+      </section>
+    </main>
+
+    <footer><span id="yr"></span> • Amanda • Where Shadows Become Story</footer>
+
+    <!-- Modal -->
+    <div
+      class="modal"
+      id="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Close" data-close>✕</button>
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__text" id="modal-text"></p>
+        <div class="modal__actions">
+          <a
+            id="modal-buy"
+            class="btn primary"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+    </script>
+    <script src="./assets/js/main.js" defer></script>
+  </body>
+</html>
