@@ -299,3 +299,192 @@ footer {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+/* ============ POP ENHANCEMENTS ============ */
+/* Fonts */
+:root {
+  --heading: "Cinzel", serif;
+  --body: "Crimson Text", serif;
+
+  --ink: #e9e6f8;
+  --ink-dim: #bfbdd4;
+  --muted: #8e89ad;
+
+  --accent: #bda0ff; /* lavender glow */
+  --accent-deep: #6f5bd3; /* deeper purple */
+  --veil: #0a0b10; /* base bg */
+}
+
+/* Global background + vignette */
+html,
+body {
+  background: radial-gradient(
+      120% 120% at 50% -10%,
+      rgba(189, 160, 255, 0.1),
+      rgba(0, 0, 0, 0) 55%
+    ),
+    radial-gradient(
+      120% 120% at 50% 120%,
+      rgba(16, 14, 32, 0.9),
+      rgba(10, 11, 16, 1) 60%
+    ),
+    #0a0b10;
+  color: var(--ink);
+  font-family: var(--body);
+}
+
+/* Headings—elegant */
+h1,
+h2,
+h3,
+.section-title {
+  font-family: var(--heading);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 12px 40px rgba(189, 160, 255, 0.12);
+}
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+.section-title::before,
+.section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(189, 160, 255, 0.25),
+    transparent
+  );
+}
+.section-title::before {
+  right: 100%;
+  margin-right: 0.75rem;
+}
+.section-title::after {
+  left: 100%;
+  margin-left: 0.75rem;
+}
+
+/* Hero—soft aura */
+.hero {
+  background: radial-gradient(
+      80% 140% at 50% -20%,
+      rgba(189, 160, 255, 0.1),
+      rgba(0, 0, 0, 0)
+    ),
+    linear-gradient(180deg, rgba(9, 10, 18, 0.7), rgba(9, 10, 18, 0) 50%),
+    transparent;
+  padding-top: 10vh;
+  padding-bottom: 8vh;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+.hero p {
+  color: var(--ink-dim);
+}
+
+/* Buttons—gothic glow */
+.btn {
+  transition: transform 0.2s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background-color 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) inset;
+  backdrop-filter: blur(2px);
+}
+.btn.primary {
+  background: linear-gradient(
+    180deg,
+    rgba(189, 160, 255, 0.28),
+    rgba(111, 91, 211, 0.24)
+  );
+  border-color: rgba(189, 160, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(189, 160, 255, 0.15) inset,
+    0 12px 35px rgba(111, 91, 211, 0.28);
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn.primary:hover {
+  box-shadow: 0 0 0 1px rgba(189, 160, 255, 0.25) inset,
+    0 20px 55px rgba(111, 91, 211, 0.45);
+}
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Cards—lift + chrome rim */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: radial-gradient(
+      140% 120% at 50% -20%,
+      rgba(189, 160, 255, 0.06),
+      rgba(0, 0, 0, 0)
+    ),
+    rgba(12, 12, 18, 0.6);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transform: translateZ(0); /* enable GPU */
+  transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.2, 1),
+    box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(189, 160, 255, 0.35);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+}
+.card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+.card:hover .card__media img {
+  transform: scale(1.06);
+}
+
+/* Subtle text tone */
+.card__blurb,
+.about p,
+.hint {
+  color: var(--ink-dim);
+}
+
+/* Reveal-on-scroll */
+.will-reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Modal polish */
+.modal.is-open .modal__dialog {
+  animation: popIn 0.35s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+@keyframes popIn {
+  from {
+    transform: translateY(14px) scale(0.98);
+    opacity: 0.6;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Nice scrolling */
+html {
+  scroll-behavior: smooth;
+}
